@@ -5,6 +5,7 @@ Sample test
 from django.test import SimpleTestCase
 from .calc import add, subtract, even_or_odd
 
+
 class CalcTest(SimpleTestCase):
     """Test the calc module"""
 
