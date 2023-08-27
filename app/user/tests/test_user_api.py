@@ -56,7 +56,7 @@ class PublicUserApiTests(TestCase):
         payload = {
             'email': 'test@example.com',
             'password': 'pw',
-            'name': 'Test Name',
+            'name': 'Test name',
         }
         res = self.client.post(CREATE_USER_URL, payload)
 
@@ -69,7 +69,7 @@ class PublicUserApiTests(TestCase):
     def test_create_token_for_user(self):
         """Test generates token valid credentials"""
         user_details = {
-            'name': 'Test name',
+            'name': 'Test Name',
             'email': 'test@axample.com',
             'password': 'test-user-password123',
         }
@@ -101,7 +101,7 @@ class PublicUserApiTests(TestCase):
         self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
 
     def test_create_token_blank_password(self):
-        """Test posting a blank password returns an errors"""
+        """Test posting a blank password returns an error."""
         payload = {'email': 'test@example.com', 'password': ''}
         res = self.client.post(TOKEN_URL, payload)
 
@@ -137,7 +137,7 @@ class PrivateUserApiTests(TestCase):
             'email': self.user.email,
         })
 
-    def test_post_mo_not_allowed(self):
+    def test_post_me_not_allowed(self):
         """Test POST is not allowed for me endpoint."""
         res = self.client.post(ME_URL, {})
 
