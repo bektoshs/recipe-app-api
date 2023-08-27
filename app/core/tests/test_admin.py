@@ -6,7 +6,7 @@ from django.contrib.auth import get_user_model
 from django.urls import reverse
 
 
-class AdminSiteTest(TestCase):
+class AdminSiteTests(TestCase):
     """Tests for Django admin."""
 
     def setUp(self):
@@ -23,7 +23,7 @@ class AdminSiteTest(TestCase):
             name='Test Name'
         )
 
-    def test_users_list(self):
+    def test_users_lists(self):
         """Test that users are listed on page."""
         url = reverse('admin:core_user_changelist')
         res = self.client.get(url)
