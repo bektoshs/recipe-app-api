@@ -9,14 +9,18 @@ from django.urls import (
 from rest_framework.routers import DefaultRouter
 
 from recipe import views
-from .views import RecipeViewSet
+from .views import (
+    RecipeViewSet,
+    TagViewSet,
+)
 
 router = DefaultRouter()
-router.registry('recipes', RecipeViewSet)
+router.register('recipes', RecipeViewSet)
+router.register('tags', TagViewSet)
 
 
 app_name = 'recipe'
 
-urlpatters = [
+urlpatterns = [
     path('', include(router.urls)),
 ]
